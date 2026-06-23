@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  max-width: 48rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: color-mix(in oklch, var(--foreground), transparent 15%);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.updated {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}

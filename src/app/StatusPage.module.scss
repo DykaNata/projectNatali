@@ -1,0 +1,68 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--background);
+}
+
+.panel {
+  width: min(100%, 28rem);
+  text-align: center;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+}
+
+.notFoundTitle {
+  font-size: 4.5rem;
+}
+
+.message {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--ink);
+  font-size: 0.875rem;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.primaryAction {
+  margin-top: 1.5rem;
+
+  &:hover {
+    background: var(--ink);
+    color: var(--background);
+  }
+}
+
+.actions .primaryAction {
+  margin-top: 0;
+}
+
+.secondaryAction {
+  border-color: var(--border);
+
+  &:hover {
+    background: var(--accent);
+  }
+}

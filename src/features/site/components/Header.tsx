@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { useI18n } from "@/shared/i18n/I18nProvider";
+import { useI18n } from "@/shared/i18n/useI18n";
+import styles from "./Header.module.scss";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
@@ -17,22 +18,22 @@ export function Header() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="font-display text-lg tracking-tight text-ink">Nataliia Dyka</span>
-          <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <Link to="/" className={styles.brand} onClick={() => setOpen(false)}>
+          <span className={styles.brandName}>Nataliia Dyka</span>
+          <span className={styles.brandMeta}>
             IP&nbsp;Law
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className={styles.desktopNav}>
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="text-sm text-foreground/80 transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className={styles.navLink}
+              activeProps={{ className: styles.activeLink }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
@@ -40,44 +41,44 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center text-xs font-medium tracking-wider">
+        <div className={styles.actions}>
+          <div className={styles.languageSwitch}>
             <button
               onClick={() => setLang("uk")}
-              className={`px-1.5 transition-colors ${lang === "uk" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+              className={lang === "uk" ? styles.currentLanguage : styles.languageButton}
               aria-label="Українська"
             >
               UA
             </button>
-            <span className="text-border">/</span>
+            <span className={styles.languageDivider}>/</span>
             <button
               onClick={() => setLang("en")}
-              className={`px-1.5 transition-colors ${lang === "en" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+              className={lang === "en" ? styles.currentLanguage : styles.languageButton}
               aria-label="English"
             >
               EN
             </button>
           </div>
           <button
-            className="md:hidden"
+            className={styles.menuButton}
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className={styles.menuIcon} /> : <Menu className={styles.menuIcon} />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-border md:hidden">
-          <nav className="container-page flex flex-col py-4">
+        <div className={styles.mobilePanel}>
+          <nav className={styles.mobileNav}>
             {nav.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="py-2 text-sm"
-                activeProps={{ className: "text-foreground" }}
+                className={styles.mobileLink}
+                activeProps={{ className: styles.activeLink }}
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}

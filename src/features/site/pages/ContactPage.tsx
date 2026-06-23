@@ -1,7 +1,8 @@
 import { CONTACT } from "@/content/site";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
-import { useI18n } from "@/shared/i18n/I18nProvider";
+import { useI18n } from "@/shared/i18n/useI18n";
 import { Section } from "@/shared/ui/Section";
+import styles from "./ContactPage.module.scss";
 
 export function ContactPage() {
   const { t } = useI18n();
@@ -21,20 +22,18 @@ export function ContactPage() {
   ];
 
   return (
-    <Section eyebrow={t("contact.eyebrow")} title={<span className="text-accent-red">{t("contact.title")}</span>}>
-      <p className="-mt-6 mb-14 max-w-2xl text-base text-muted-foreground md:text-lg">
-        {t("contact.sub")}
-      </p>
-      <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+    <Section eyebrow={t("contact.eyebrow")} title={<span className={styles.accent}>{t("contact.title")}</span>}>
+      <p className={styles.intro}>{t("contact.sub")}</p>
+      <div className={styles.cards}>
         {items.map((it) => (
-          <div key={it.label} className="bg-background p-8 md:p-10">
-            <div className="eyebrow mb-3">{it.label}</div>
+          <div key={it.label} className={styles.card}>
+            <div className={styles.eyebrow}>{it.label}</div>
             {it.href ? (
-              <a href={it.href} className="font-display text-2xl text-ink hover:text-accent-red md:text-3xl">
+              <a href={it.href} className={styles.value}>
                 {it.value}
               </a>
             ) : (
-              <div className="font-display text-2xl text-ink md:text-3xl">{it.value}</div>
+              <div className={styles.value}>{it.value}</div>
             )}
           </div>
         ))}

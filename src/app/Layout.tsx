@@ -2,12 +2,13 @@ import { Outlet } from "@tanstack/react-router";
 
 import { Footer } from "@/features/site/components/Footer";
 import { Header } from "@/features/site/components/Header";
+import styles from "./Layout.module.scss";
 
 export function Layout() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className={styles.app}>
       <Header />
-      <main className="flex-1">
+      <main className={styles.main}>
         <Outlet />
       </main>
       <Footer />

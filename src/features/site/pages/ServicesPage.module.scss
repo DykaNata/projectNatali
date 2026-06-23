@@ -1,0 +1,50 @@
+.services {
+  border-top: 1px solid var(--foreground);
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-block: 2.5rem;
+  transition: background-color 180ms ease;
+
+  &:hover {
+    background: color-mix(in oklch, var(--secondary), transparent 60%);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+  }
+
+  p {
+    max-width: 36rem;
+    color: color-mix(in oklch, var(--foreground), transparent 20%);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+.number {
+  color: color-mix(in oklch, var(--muted-foreground), transparent 40%);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+}
+
+@media (min-width: 768px) {
+  .service {
+    flex-direction: row;
+    gap: 3rem;
+    padding-block: 3.5rem;
+
+    .number {
+      flex: 0 0 5rem;
+    }
+
+    h3,
+    p {
+      flex: 1 1 0;
+    }
+  }
+}

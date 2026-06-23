@@ -1,6 +1,7 @@
 import { usePageMeta } from "@/shared/lib/usePageMeta";
-import { useI18n } from "@/shared/i18n/I18nProvider";
+import { useI18n } from "@/shared/i18n/useI18n";
 import { Section } from "@/shared/ui/Section";
+import styles from "./PrivacyPage.module.scss";
 
 export function PrivacyPage() {
   const { lang } = useI18n();
@@ -18,7 +19,7 @@ export function PrivacyPage() {
       eyebrow={isUk ? "Юридична інформація" : "Legal"}
       title={isUk ? "Політика конфіденційності" : "Privacy Policy"}
     >
-      <div className="max-w-3xl space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+      <div className={styles.content}>
         {isUk ? (
           <>
             <p>
@@ -48,12 +49,12 @@ export function PrivacyPage() {
               <strong>Ваші права.</strong> Ви маєте право отримати інформацію про
               обробку ваших даних, вимагати їх виправлення або видалення. Для цього
               напишіть на{" "}
-              <a className="underline" href="mailto:Nataliia.dikaya@gmail.com">
+              <a href="mailto:Nataliia.dikaya@gmail.com">
                 Nataliia.dikaya@gmail.com
               </a>
               .
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className={styles.updated}>
               Останнє оновлення: червень 2026 року.
             </p>
           </>
@@ -85,12 +86,12 @@ export function PrivacyPage() {
               <strong>Your rights.</strong> You may request information about the
               processing of your data and request its correction or deletion by writing
               to{" "}
-              <a className="underline" href="mailto:Nataliia.dikaya@gmail.com">
+              <a href="mailto:Nataliia.dikaya@gmail.com">
                 Nataliia.dikaya@gmail.com
               </a>
               .
             </p>
-            <p className="text-sm text-muted-foreground">Last updated: June 2026.</p>
+            <p className={styles.updated}>Last updated: June 2026.</p>
           </>
         )}
       </div>

@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import styles from "./Section.module.scss";
+
 export function Section({
   eyebrow,
   title,
@@ -12,18 +14,16 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`container-page py-20 md:py-28 ${className}`}>
+    <section className={[styles.section, className].filter(Boolean).join(" ")}>
       {(eyebrow || title) && (
-        <div className="mb-12 max-w-3xl">
+        <div className={styles.header}>
           {eyebrow && (
-            <div className="mb-4 flex items-center gap-3">
-              <span className="rule" />
-              <span className="eyebrow">{eyebrow}</span>
+            <div className={styles.eyebrowRow}>
+              <span className={styles.rule} />
+              <span className={styles.eyebrow}>{eyebrow}</span>
             </div>
           )}
-          {title && (
-            <h2 className="text-3xl leading-tight md:text-5xl">{title}</h2>
-          )}
+          {title && <h2 className={styles.title}>{title}</h2>}
         </div>
       )}
       {children}

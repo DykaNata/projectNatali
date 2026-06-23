@@ -20,6 +20,8 @@ src/shared              small shared UI, i18n and browser utilities
 src/assets              local image assets used by the site
 ```
 
+Styles are written as colocated `*.module.scss` files. Layouts intentionally prefer flexbox and simple media queries.
+
 ## Asset Note
 
 The site imports images directly from `src/assets`, so the production build fingerprints and bundles them through Vite.

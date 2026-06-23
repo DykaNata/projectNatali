@@ -1,4 +1,6 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+
+import { I18nContext } from "./I18nContext";
 
 export type Lang = "uk" | "en";
 
@@ -163,8 +165,7 @@ const dictionaries: Record<Lang, Dict> = {
   },
 };
 
-type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (key: string) => string };
-const I18nCtx = createContext<Ctx | null>(null);
+export type I18nContextValue = { lang: Lang; setLang: (l: Lang) => void; t: (key: string) => string };
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("uk");
@@ -188,11 +189,5 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     return typeof v === "string" ? v : key;
   };
 
-  return <I18nCtx.Provider value={{ lang, setLang, t }}>{children}</I18nCtx.Provider>;
-}
-
-export function useI18n() {
-  const ctx = useContext(I18nCtx);
-  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
-  return ctx;
+  return <I18nContext.Provider value={{ lang, setLang, t }}>{children}</I18nContext.Provider>;
 }

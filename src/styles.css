@@ -1,137 +1,82 @@
-@import "tailwindcss" source(none);
-@source "../src";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ink: var(--ink);
-  --color-accent-red: var(--accent-red);
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-}
-
 :root {
   --radius: 0.25rem;
-
-  /* Cool minimalist: white base with soft blue-gray accent surfaces */
   --background: oklch(1 0 0);
   --foreground: oklch(0.22 0.035 250);
   --ink: oklch(0.18 0.04 250);
   --accent-red: oklch(0.45 0.13 248);
-
-  --card: oklch(1 0 0);
-  --card-foreground: var(--foreground);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--foreground);
-
-  --primary: oklch(0.24 0.04 250);
-  --primary-foreground: oklch(0.99 0.003 240);
-
   --secondary: oklch(0.955 0.012 245);
-  --secondary-foreground: var(--foreground);
-
   --muted: oklch(0.96 0.01 245);
   --muted-foreground: oklch(0.46 0.025 250);
-
   --accent: oklch(0.94 0.014 245);
-  --accent-foreground: var(--foreground);
-
-  --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.985 0 0);
-
   --border: oklch(0.88 0.012 245);
-  --input: oklch(0.88 0.012 245);
-  --ring: oklch(0.24 0.04 250);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
-.dark {
-  --background: oklch(0.16 0.02 260);
-  --foreground: oklch(0.97 0.005 95);
-  --ink: oklch(0.97 0.005 95);
-  --card: oklch(0.2 0.025 260);
-  --card-foreground: var(--foreground);
-  --popover: oklch(0.2 0.025 260);
-  --popover-foreground: var(--foreground);
-  --primary: oklch(0.97 0.005 95);
-  --primary-foreground: oklch(0.18 0.04 260);
-  --secondary: oklch(0.24 0.03 260);
-  --secondary-foreground: var(--foreground);
-  --muted: oklch(0.24 0.03 260);
-  --muted-foreground: oklch(0.7 0.02 260);
-  --accent: oklch(0.26 0.035 260);
-  --accent-foreground: var(--foreground);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.02 260);
+* {
+  box-sizing: border-box;
 }
 
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    font-feature-settings: "ss01", "cv11";
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
-    color: var(--color-ink);
-    font-weight: 500;
-    letter-spacing: 0;
-  }
+html {
+  font-feature-settings: "ss01", "cv11";
 }
 
-@utility container-page {
-  margin-inline: auto;
-  max-width: 76rem;
-  padding-inline: 1.5rem;
-}
-
-@utility eyebrow {
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-muted-foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@utility rule {
-  display: inline-block;
-  width: 2.5rem;
-  height: 1px;
-  background-color: var(--color-ink);
-  vertical-align: middle;
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0;
 }
