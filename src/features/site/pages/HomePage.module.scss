@@ -61,6 +61,14 @@
   img {
     width: 100%;
     object-fit: cover;
+    mask-image:
+      linear-gradient(to right, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 20%) 10%, #000 52%),
+      linear-gradient(to bottom, rgb(0 0 0 / 18%) 0%, #000 18%, #000 82%, rgb(0 0 0 / 18%) 100%);
+    mask-composite: intersect;
+    //-webkit-mask-image:
+    //  linear-gradient(to right, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 20%) 10%, #000 52%),
+    //  linear-gradient(to bottom, rgb(0 0 0 / 18%) 0%, #000 18%, #000 82%, rgb(0 0 0 / 18%) 100%);
+    //-webkit-mask-composite: source-in;
   }
 }
 
@@ -74,15 +82,11 @@
 }
 
 .heroFadeLeft {
-  inset: 0 auto 0 0;
-  width: 25%;
-  background: linear-gradient(to right, color-mix(in oklch, var(--background), transparent 50%), transparent);
+  display: none;
 }
 
 .heroFadeBottom {
-  inset: auto 0 0;
-  height: 20%;
-  background: linear-gradient(to bottom, transparent, color-mix(in oklch, var(--background), transparent 50%));
+  display: none;
 }
 
 .eyebrowRow {

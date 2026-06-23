@@ -47,8 +47,6 @@ export function HomePage() {
           <img
             src={heroImage}
             alt={lang === "uk" ? "Наталія Дика — патентний повірений України" : "Nataliia Dyka — Patent Attorney of Ukraine"}
-            width={1280}
-            height={838}
           />
           <span className={styles.heroFadeLeft} aria-hidden />
           <span className={styles.heroFadeBottom} aria-hidden />
