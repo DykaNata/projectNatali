@@ -1,16 +1,92 @@
+/* src/styles.css — redesigned tokens (LIGHT v2: airy bone, light journal/footer, oxblood red) */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-normal-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-normal-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-italic-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/instrument-sans-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/instrument-sans-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --radius: 0.25rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.22 0.035 250);
-  --ink: oklch(0.18 0.04 250);
-  --accent-red: oklch(0.45 0.13 248);
-  --secondary: oklch(0.955 0.012 245);
-  --muted: oklch(0.96 0.01 245);
-  --muted-foreground: oklch(0.46 0.025 250);
-  --accent: oklch(0.94 0.014 245);
-  --border: oklch(0.88 0.012 245);
+
+  --background: #f8f5ef;     /* airy bone paper */
+  --foreground: #23211c;     /* body ink */
+  --ink: #1a1814;            /* deepest ink — headings & dark buttons */
+
+  --accent-red: #9a2b25;     /* oxblood / brick red accent */
+  --accent-red-dark: #7c211c;
+  --accent-soft: #c9655f;    /* lighter red for hovers */
+
+  --secondary: #f1ece2;      /* section / band fill */
+  --muted: #ece5d9;          /* hover fill */
+  --muted-foreground: #8b8576;
+  --accent: #ece5d9;
+  --border: #e0d9cb;
+
+  --blush: #f3eae3;          /* warm light tint for the Journal band */
+  --footer-bg: #efe7dc;      /* optional: warm footer fill (see note) */
+
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Open Sans", system-ui, sans-serif;
 }
 
 * {
@@ -19,6 +95,7 @@
 
 html {
   font-feature-settings: "ss01", "cv11";
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,13 +107,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body,
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
 
 button {
   border: 0;
@@ -50,7 +120,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 
 figure,
 h1,

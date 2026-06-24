@@ -7,7 +7,6 @@ import knuImage from "@/assets/knu-real.png";
 import { CONTACT, SERVICE_KEYS } from "@/content/site";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
 import { useI18n } from "@/shared/i18n/useI18n";
-import { Section } from "@/shared/ui/Section";
 import styles from "./HomePage.module.scss";
 
 export function HomePage() {
@@ -21,55 +20,85 @@ export function HomePage() {
     path: "/",
   });
 
+  const uk = lang === "uk";
+  const servicesTitle = uk ? "Напрями практики" : "Areas of practice";
+  const heroName = uk ? "Наталія Дика" : "Nataliia Dyka";
+  const heroRole = uk
+    ? "Патентний повірений · Юрист з інтелектуальної власності"
+    : "Patent Attorney · Intellectual Property Lawyer";
+  const heroCaption = uk ? "Київ · Патентний повірений України" : "Kyiv · Patent Attorney of Ukraine";
+
+  const quickNav = [
+    { to: "/about", key: "nav.about" },
+    { to: "/services", key: "nav.services" },
+    { to: "/contact", key: "nav.contact" },
+    { to: "/blog", key: "nav.blog" },
+  ] as const;
+
   return (
     <>
-      <section className={styles.hero}>
+      {/* HERO */}
+      <section id="top" className={styles.hero}>
         <div className={styles.heroText}>
-          <h1 className={styles.heroName}>{t("hero.name")}</h1>
-
           <div className={styles.eyebrowRow}>
             <span className={styles.rule} />
             <span className={styles.eyebrow}>{t("hero.eyebrow")}</span>
           </div>
 
-          <h2 className={styles.heroTitle}>
-            Own Your
+          <h1 className={styles.heroTitle}>
+            Own&nbsp;Your
             <br />
-            <span>Ideas</span>.
-          </h2>
+            <span>Ideas</span>
+            <span className={styles.dot}>.</span>
+          </h1>
 
-          {lang === "uk" && <p className={styles.heroTranslation}>Стань власником своїх ідей</p>}
+          {uk && <p className={styles.heroTranslation}>{t("hero.titleUa")}</p>}
+
+          <div className={styles.heroNameRow}>
+            <span className={styles.heroNameRule} />
+            <div>
+              <div className={styles.heroName}>{heroName}</div>
+              <div className={styles.heroRole}>{heroRole}</div>
+            </div>
+          </div>
 
           <p className={styles.heroIntro}>{t("hero.sub")}</p>
+
+          <div className={styles.heroActions}>
+            <Link to="/services" className={styles.primaryButton}>
+              {t("hero.ctaServices")} <ArrowUpRight className={styles.buttonIcon} />
+            </Link>
+            <Link to="/contact" className={styles.secondaryButton}>
+              {t("hero.ctaContact")} <ArrowUpRight className={styles.buttonIcon} />
+            </Link>
+          </div>
         </div>
 
         <div className={styles.heroMedia}>
-          <img
-            src={heroImage}
-            alt={lang === "uk" ? "Наталія Дика — патентний повірений України" : "Nataliia Dyka — Patent Attorney of Ukraine"}
-          />
-          <span className={styles.heroFadeLeft} aria-hidden />
-          <span className={styles.heroFadeBottom} aria-hidden />
+          <span className={styles.heroFrame} aria-hidden />
+          <div className={styles.heroImageWrap}>
+            <img
+              src={heroImage}
+              alt={uk ? "Наталія Дика — патентний повірений України" : "Nataliia Dyka — Patent Attorney of Ukraine"}
+            />
+            <figcaption className={styles.heroCaption}>{heroCaption}</figcaption>
+          </div>
         </div>
       </section>
 
+      {/* QUICK NAV */}
       <nav className={styles.quickNav}>
         <div className={styles.quickNavInner}>
-          {[
-            { to: "/about", key: "nav.about" },
-            { to: "/services", key: "nav.services" },
-            { to: "/contact", key: "nav.contact" },
-            { to: "/blog", key: "nav.blog" },
-          ].map((item) => (
+          {quickNav.map((item) => (
             <Link key={item.to} to={item.to} className={styles.quickNavLink}>
               <span>{t(item.key)}</span>
               <ArrowUpRight className={styles.quickNavIcon} />
-              <span className={styles.quickNavUnderline} />
             </Link>
           ))}
         </div>
       </nav>
 
+      {/* ABOUT */}
       <section id="about" className={styles.about}>
         <div className={styles.eyebrowRow}>
           <span className={styles.rule} />
@@ -78,26 +107,25 @@ export function HomePage() {
 
         <div className={styles.aboutContent}>
           <div className={styles.aboutPhotos}>
-            <figure className={styles.photoFrame}>
-              <img
-                src={streetImage}
-                alt={lang === "uk" ? "Наталія Дика на вулиці Києва" : "Nataliia Dyka in Kyiv"}
-                loading="lazy"
-                className={styles.streetPhoto}
-              />
-              <span className={styles.photoFadeRight} aria-hidden />
-              <span className={styles.photoFadeBottom} aria-hidden />
-            </figure>
+            <div className={styles.streetWrap}>
+              <span className={styles.aboutFrame} aria-hidden />
+              <figure className={styles.streetFigure}>
+                <img
+                  src={streetImage}
+                  alt={uk ? "Наталія Дика на вулиці Києва" : "Nataliia Dyka in Kyiv"}
+                  loading="lazy"
+                  className={styles.streetPhoto}
+                />
+              </figure>
+            </div>
 
-            <figure className={styles.photoFrame}>
+            <figure className={styles.knuFigure}>
               <img
                 src={knuImage}
-                alt={lang === "uk" ? "Червоний корпус КНУ імені Тараса Шевченка" : "Red building of Taras Shevchenko National University"}
+                alt={uk ? "Червоний корпус КНУ імені Тараса Шевченка" : "Red building of Taras Shevchenko National University"}
                 loading="lazy"
                 className={styles.knuPhoto}
               />
-              <span className={styles.photoFadeRight} aria-hidden />
-              <span className={styles.photoFadeTop} aria-hidden />
               <figcaption className={styles.caption}>{t("home.about.knuCaption")}</figcaption>
             </figure>
           </div>
@@ -110,52 +138,88 @@ export function HomePage() {
               <p>{t("home.about.p3")}</p>
               <p>{t("home.about.p4")}</p>
               <p>{t("home.about.p5")}</p>
-              <p className={styles.aboutSignature}>{t("home.about.p6")}</p>
             </div>
+            <p className={styles.aboutSignature}>{t("home.about.p6")}</p>
           </div>
         </div>
       </section>
 
-      <Section eyebrow={t("services.eyebrow")} title={t("services.title")}>
-        <div className={styles.serviceCards}>
-          {SERVICE_KEYS.map((k, i) => (
-            <article key={k} className={styles.serviceCard}>
-              <div className={styles.serviceNumber}>0{i + 1}</div>
-              <h3>{t(`svc.${k}.title`)}</h3>
-              <p>{t(`svc.${k}.desc`)}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
+      {/* SERVICES */}
+      <section id="services" className={styles.servicesSection}>
+        <div className={styles.servicesInner}>
+          <div className={styles.eyebrowRow}>
+            <span className={styles.rule} />
+            <span className={styles.eyebrow}>{t("services.eyebrow")}</span>
+          </div>
+          <h2 className={styles.servicesTitle}>{servicesTitle}</h2>
 
-      <Section eyebrow={t("contact.eyebrow")} title={<span className={styles.accentText}>{t("contact.title")}</span>}>
+          <div className={styles.serviceList}>
+            {SERVICE_KEYS.map((k, i) => (
+              <Link key={k} to="/contact" className={styles.serviceRow}>
+                <div className={styles.serviceNumber}>0{i + 1}</div>
+                <div className={styles.serviceBody}>
+                  <h3 className={styles.serviceName}>
+                    {t(`svc.${k}.title`)}
+                    <ArrowUpRight className={styles.serviceArrow} />
+                  </h3>
+                  <p>{t(`svc.${k}.desc`)}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className={styles.contact}>
+        <div className={styles.eyebrowRow}>
+          <span className={styles.rule} />
+          <span className={styles.eyebrow}>{t("contact.eyebrow")}</span>
+        </div>
+        <h2 className={styles.contactTitle}>{t("contact.title")}</h2>
+        <p className={styles.contactSub}>{t("contact.sub")}</p>
+
         <div className={styles.contactCards}>
           <a href={CONTACT.phone.href} className={styles.contactCard}>
-            <div className={styles.eyebrow}>{t("contact.phone")}</div>
+            <div className={styles.contactLabel}>{t("contact.phone")}</div>
             <div className={styles.contactValue}>{CONTACT.phone.label}</div>
           </a>
           <a href={CONTACT.email.href} className={styles.contactCard}>
-            <div className={styles.eyebrow}>{t("contact.email")}</div>
+            <div className={styles.contactLabel}>{t("contact.email")}</div>
             <div className={styles.contactValue}>{CONTACT.email.label}</div>
           </a>
           <div className={styles.contactCard}>
-            <div className={styles.eyebrow}>{t("contact.location")}</div>
+            <div className={styles.contactLabel}>{t("contact.location")}</div>
             <div className={styles.contactValue}>{t("contact.city")}</div>
+            <div className={styles.contactHours}>{t("contact.hoursValue")}</div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section eyebrow={t("blog.eyebrow")} title={<span className={styles.accentText}>{t("blog.title")}</span>}>
-        <p className={styles.blogIntro}>{t("blog.empty")}</p>
-        <div className={styles.blogActions}>
-          <Link to="/blog" className={styles.primaryButton}>
-            {t("blog.openBlog")} <ArrowUpRight className={styles.buttonIcon} />
-          </Link>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
-            {t("blog.instagram")} <ArrowUpRight className={styles.buttonIcon} />
-          </a>
+      {/* JOURNAL (light band) */}
+      <section id="journal" className={styles.journal}>
+        <div className={styles.journalInner}>
+          <div className={styles.eyebrowRow}>
+            <span className={styles.rule} />
+            <span className={styles.eyebrow}>{t("blog.eyebrow")}</span>
+          </div>
+          <h2 className={styles.journalTitle}>{t("blog.title")}</h2>
+          <p className={styles.journalIntro}>{t("blog.empty")}</p>
+          <div className={styles.journalActions}>
+            <Link to="/blog" className={styles.journalPrimary}>
+              {t("blog.openBlog")} <ArrowUpRight className={styles.buttonIcon} />
+            </Link>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.journalSecondary}
+            >
+              {t("blog.instagram")} <ArrowUpRight className={styles.buttonIcon} />
+            </a>
+          </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
