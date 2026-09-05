@@ -872,7 +872,14 @@ a.contactCard:hover {
 
   .serviceRow {
     grid-template-columns: 1fr;
-    padding-inline: 0;
+    padding-inline: 1rem;
+    &:hover {
+	box-shadow: inset 0 0.1875rem 0 var(--accent-red)
+    }
+    
+    &:active {
+      background: var(--muted)
+    }	
   }
 
   .serviceName {
