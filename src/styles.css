@@ -1,4 +1,4 @@
-/* src/styles.css — redesigned tokens (LIGHT v2: airy bone, light journal/footer, oxblood red) */
+/* src/styles.css — redesigned tokens (LIGHT v3: milk, petrol, sage, plum, charcoal) */
 @font-face {
   font-family: "Cormorant Garamond";
   font-style: normal;
@@ -68,23 +68,30 @@
 :root {
   --radius: 0.25rem;
 
-  --background: #f8f5ef; /* airy bone paper */
-  --foreground: #23211c; /* body ink */
-  --ink: #1a1814; /* deepest ink — headings & dark buttons */
+  --deep-petrol: #174c52;
+  --ink-blue: #303950;
+  --deep-sage: #58665b;
+  --plum: #594454;
+  --stone-charcoal: #3f3f3f;
 
-  --accent-red: #9a2b25; /* oxblood / brick red accent */
-  --accent-red-dark: #7c211c;
-  --accent-soft: #c9655f; /* lighter red for hovers */
-  --focus-ring: #b45309;
+  --background: #f7f4ef; /* milk paper */
+  --foreground: var(--stone-charcoal);
+  --ink: var(--ink-blue);
 
-  --secondary: #f1ece2; /* section / band fill */
-  --muted: #ece5d9; /* hover fill */
-  --muted-foreground: #8b8576;
-  --accent: #ece5d9;
-  --border: #e0d9cb;
+  --accent-red: var(--deep-petrol); /* legacy accent alias */
+  --accent-red-dark: #103d42;
+  --accent-soft: var(--deep-sage);
+  --accent-editorial: var(--plum);
+  --focus-ring: var(--deep-petrol);
 
-  --blush: #f3eae3; /* warm light tint for the Journal band */
-  --footer-bg: #efe7dc; /* optional: warm footer fill (see note) */
+  --secondary: #eef0eb; /* sage-tinted section fill */
+  --muted: #e3e8e4; /* sage hover fill */
+  --muted-foreground: var(--deep-sage);
+  --accent: #e4ece9;
+  --border: #d8ddd5;
+
+  --blush: #f1eaee; /* plum-tinted band fill */
+  --footer-bg: #e9ece6;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Instrument Sans", system-ui, sans-serif;

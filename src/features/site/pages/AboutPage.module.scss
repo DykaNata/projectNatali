@@ -23,10 +23,11 @@
 }
 
 .quote {
+  position: relative;
   margin: 1rem 0 0;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
-  color: var(--accent-red);
+  color: var(--accent-editorial);
   font-family: var(--font-display);
   font-size: clamp(1.1875rem, 2.2vw, 1.5rem);
   font-style: italic;
@@ -36,16 +37,25 @@
     margin-top: 1rem;
   }
 
+  p:first-of-type::before {
+    content: "“";
+  }
+
+  p:last-of-type::after {
+    content: "”";
+  }
+
   cite {
     display: block;
     margin-top: 1.25rem;
-    color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    color: var(--accent-editorial);
+    font-family: var(--font-display);
+    font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: right;
+    text-transform: none;
   }
 }
 

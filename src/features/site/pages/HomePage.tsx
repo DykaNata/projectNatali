@@ -32,8 +32,8 @@ export function HomePage() {
   const servicesTitle = uk ? "Напрями практики" : "Areas of practice";
   const heroName = uk ? "Наталія Дика" : "Nataliia Dyka";
   const heroRole = uk
-    ? "Юристка з інтелектуальної власності"
-    : "Intellectual Property Lawyer";
+    ? "Юрист з інтелектуальної власності · Патентний повірений"
+    : "Intellectual Property Lawyer · Patent Attorney";
   const heroCaption = uk
     ? "Київ · Інтелектуальна власність"
     : "Kyiv · Intellectual Property";
@@ -344,7 +344,6 @@ export function HomePage() {
             <span className={styles.eyebrow}>{t("blog.eyebrow")}</span>
           </div>
           <h2 className={styles.journalTitle}>{t("blog.title")}</h2>
-          <p className={styles.journalIntro}>{t("blog.empty")}</p>
           <div className={styles.journalActions}>
             <Link to="/blog" className={styles.journalPrimary}>
               {t("blog.openBlog")}{" "}

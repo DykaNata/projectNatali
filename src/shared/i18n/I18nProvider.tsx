@@ -82,6 +82,7 @@ const dictionaries: Record<Lang, Dict> = {
     "blog.title": "Блог",
     "blog.empty": "Матеріали в цьому розділі з'являться найближчим часом.",
     "blog.soon": "Скоро",
+    "blog.choose": "Оберіть матеріал",
     "blog.instagram": "Слідкуйте в Instagram",
     "blog.openBlog": "Перейти до блогу",
 
@@ -182,6 +183,7 @@ const dictionaries: Record<Lang, Dict> = {
     "blog.title": "Journal",
     "blog.empty": "Materials in this section will appear soon.",
     "blog.soon": "Soon",
+    "blog.choose": "Choose an article",
     "blog.instagram": "Follow on Instagram",
     "blog.openBlog": "Open the blog",
 
