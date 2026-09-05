@@ -10,6 +10,7 @@ import { NotFoundPage } from "@/app/NotFoundPage";
 import { AboutPage } from "@/features/site/pages/AboutPage";
 import { BlogPage } from "@/features/site/pages/BlogPage";
 import { ContactPage } from "@/features/site/pages/ContactPage";
+import { ForWhomPage } from "@/features/site/pages/ForWhomPage";
 import { HomePage } from "@/features/site/pages/HomePage";
 import { PrivacyPage } from "@/features/site/pages/PrivacyPage";
 import { ServicesPage } from "@/features/site/pages/ServicesPage";
@@ -38,6 +39,12 @@ const servicesRoute = createRoute({
   component: ServicesPage,
 });
 
+const forWhomRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/for-whom",
+  component: ForWhomPage,
+});
+
 const blogRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/blog",
@@ -59,6 +66,7 @@ const privacyRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
+  forWhomRoute,
   servicesRoute,
   blogRoute,
   contactRoute,

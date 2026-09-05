@@ -1,16 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Pause, Play } from "lucide-react";
 
 import heroImage from "@/assets/hero-main.png";
 import streetImage from "@/assets/natalii-street.png";
 import knuImage from "@/assets/knu-real.png";
-import { CONTACT, SERVICE_KEYS } from "@/content/site";
+import {
+  ABOUT_CONTENT,
+  CONTACT,
+  SERVICE_KEYS,
+  TRADEMARKS_CONTENT,
+} from "@/content/site";
+import { REGISTERED_TRADEMARKS } from "@/content/trademarks";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
 import { useI18n } from "@/shared/i18n/useI18n";
 import styles from "./HomePage.module.scss";
 
 export function HomePage() {
   const { t, lang } = useI18n();
+  const [logosPaused, setLogosPaused] = useState(false);
 
   usePageMeta({
     title: "Nataliia Dyka — Own Your Ideas | Патентний повірений України",
@@ -24,15 +32,39 @@ export function HomePage() {
   const servicesTitle = uk ? "Напрями практики" : "Areas of practice";
   const heroName = uk ? "Наталія Дика" : "Nataliia Dyka";
   const heroRole = uk
-    ? "Патентний повірений · Юрист з інтелектуальної власності"
-    : "Patent Attorney · Intellectual Property Lawyer";
-  const heroCaption = uk ? "Київ · Патентний повірений України" : "Kyiv · Patent Attorney of Ukraine";
+    ? "Юристка з інтелектуальної власності"
+    : "Intellectual Property Lawyer";
+  const heroCaption = uk
+    ? "Київ · Інтелектуальна власність"
+    : "Kyiv · Intellectual Property";
+  const about = ABOUT_CONTENT[lang];
+  const trademarks = TRADEMARKS_CONTENT[lang];
+  const logoMotionLabel = uk
+    ? logosPaused
+      ? "Відновити рух логотипів"
+      : "Зупинити рух логотипів"
+    : logosPaused
+      ? "Resume logo motion"
+      : "Pause logo motion";
+
+  const heroProof = uk
+    ? [
+        { value: "№ 526", label: "Патентний повірений України" },
+        { value: "10+", label: "років практики у сфері ІВ" },
+        { value: "UA / INTL", label: "реєстрація та захист брендів" },
+      ]
+    : [
+        { value: "No. 526", label: "Patent Attorney of Ukraine" },
+        { value: "10+", label: "years in IP practice" },
+        { value: "UA / INTL", label: "brand registration and protection" },
+      ];
 
   const quickNav = [
     { to: "/about", key: "nav.about" },
+    { to: "/for-whom", key: "nav.forWhom" },
     { to: "/services", key: "nav.services" },
-    { to: "/contact", key: "nav.contact" },
     { to: "/blog", key: "nav.blog" },
+    { to: "/contact", key: "nav.contact" },
   ] as const;
 
   return (
@@ -66,12 +98,28 @@ export function HomePage() {
 
           <div className={styles.heroActions}>
             <Link to="/services" className={styles.primaryButton}>
-              {t("hero.ctaServices")} <ArrowUpRight className={styles.buttonIcon} />
+              {t("hero.ctaServices")}{" "}
+              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
             </Link>
             <Link to="/contact" className={styles.secondaryButton}>
-              {t("hero.ctaContact")} <ArrowUpRight className={styles.buttonIcon} />
+              {t("hero.ctaContact")}{" "}
+              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
             </Link>
           </div>
+
+          <ul
+            className={styles.heroProofList}
+            aria-label={
+              uk ? "Професійні підтвердження" : "Professional proof points"
+            }
+          >
+            {heroProof.map((item) => (
+              <li key={item.value}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className={styles.heroMedia}>
@@ -79,9 +127,15 @@ export function HomePage() {
           <div className={styles.heroImageWrap}>
             <img
               src={heroImage}
-              alt={uk ? "Наталія Дика — патентний повірений України" : "Nataliia Dyka — Patent Attorney of Ukraine"}
+              alt={
+                uk
+                  ? "Портрет Наталії Дикої"
+                  : "Portrait of Nataliia Dyka"
+              }
             />
-            <figcaption className={styles.heroCaption}>{heroCaption}</figcaption>
+            <figcaption className={styles.heroCaption}>
+              {heroCaption}
+            </figcaption>
           </div>
         </div>
       </section>
@@ -92,7 +146,10 @@ export function HomePage() {
           {quickNav.map((item) => (
             <Link key={item.to} to={item.to} className={styles.quickNavLink}>
               <span>{t(item.key)}</span>
-              <ArrowUpRight className={styles.quickNavIcon} />
+              <ArrowUpRight
+                className={styles.quickNavIcon}
+                aria-hidden="true"
+              />
             </Link>
           ))}
         </div>
@@ -112,7 +169,11 @@ export function HomePage() {
               <figure className={styles.streetFigure}>
                 <img
                   src={streetImage}
-                  alt={uk ? "Наталія Дика на вулиці Києва" : "Nataliia Dyka in Kyiv"}
+                  alt={
+                    uk
+                      ? "Наталія Дика на вулиці Києва"
+                      : "Nataliia Dyka in Kyiv"
+                  }
                   loading="lazy"
                   className={styles.streetPhoto}
                 />
@@ -122,26 +183,102 @@ export function HomePage() {
             <figure className={styles.knuFigure}>
               <img
                 src={knuImage}
-                alt={uk ? "Червоний корпус КНУ імені Тараса Шевченка" : "Red building of Taras Shevchenko National University"}
+                alt={
+                  uk
+                    ? "Червоний корпус КНУ імені Тараса Шевченка"
+                    : "Red building of Taras Shevchenko National University"
+                }
                 loading="lazy"
                 className={styles.knuPhoto}
               />
-              <figcaption className={styles.caption}>{t("home.about.knuCaption")}</figcaption>
+              <figcaption className={styles.caption}>
+                {t("home.about.knuCaption")}
+              </figcaption>
             </figure>
           </div>
 
           <div className={styles.aboutText}>
-            <h2>{t("home.about.title")}</h2>
+            <h2>{about.title}</h2>
+            <p className={styles.aboutRole}>{about.role}</p>
             <div className={styles.aboutParagraphs}>
-              <p>{t("home.about.p1")}</p>
-              <p>{t("home.about.p2")}</p>
-              <p>{t("home.about.p3")}</p>
-              <p>{t("home.about.p4")}</p>
-              <p>{t("home.about.p5")}</p>
+              {about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-            <p className={styles.aboutSignature}>{t("home.about.p6")}</p>
+            <blockquote className={styles.aboutQuote}>
+              {about.quote.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <cite>{about.signature}</cite>
+            </blockquote>
           </div>
         </div>
+      </section>
+
+      {/* TRADEMARKS */}
+      <section id="trademarks" className={styles.trademarks}>
+        <div className={styles.trademarksInner}>
+          <div className={styles.eyebrowRow}>
+            <span className={styles.rule} />
+            <span className={styles.eyebrow}>{trademarks.eyebrow}</span>
+          </div>
+          <div className={styles.trademarksHeader}>
+            <h2>{trademarks.title}</h2>
+            <div>
+              {trademarks.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {REGISTERED_TRADEMARKS.length > 0 ? (
+          <>
+            <div className={styles.marqueeControls}>
+              <button
+                type="button"
+                className={styles.marqueeButton}
+                onClick={() => setLogosPaused((value) => !value)}
+                aria-pressed={logosPaused}
+              >
+                {logosPaused ? (
+                  <Play className={styles.marqueeIcon} aria-hidden="true" />
+                ) : (
+                  <Pause className={styles.marqueeIcon} aria-hidden="true" />
+                )}
+                {logoMotionLabel}
+              </button>
+            </div>
+            <div
+              className={[
+                styles.logoMarquee,
+                logosPaused ? styles.logoMarqueePaused : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              aria-label={trademarks.title}
+            >
+              {[0, 1].map((track) => (
+                <div
+                  key={track}
+                  className={styles.logoTrack}
+                  aria-hidden={track === 1}
+                >
+                  {REGISTERED_TRADEMARKS.map((logo) => (
+                    <div
+                      key={`${track}-${logo.src}`}
+                      className={styles.logoItem}
+                    >
+                      <img src={logo.src} alt={logo.alt} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className={styles.trademarkEmpty}>{trademarks.empty}</p>
+        )}
       </section>
 
       {/* SERVICES */}
@@ -160,7 +297,10 @@ export function HomePage() {
                 <div className={styles.serviceBody}>
                   <h3 className={styles.serviceName}>
                     {t(`svc.${k}.title`)}
-                    <ArrowUpRight className={styles.serviceArrow} />
+                    <ArrowUpRight
+                      className={styles.serviceArrow}
+                      aria-hidden="true"
+                    />
                   </h3>
                   <p>{t(`svc.${k}.desc`)}</p>
                 </div>
@@ -207,7 +347,8 @@ export function HomePage() {
           <p className={styles.journalIntro}>{t("blog.empty")}</p>
           <div className={styles.journalActions}>
             <Link to="/blog" className={styles.journalPrimary}>
-              {t("blog.openBlog")} <ArrowUpRight className={styles.buttonIcon} />
+              {t("blog.openBlog")}{" "}
+              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
             </Link>
             <a
               href="https://www.instagram.com/"
@@ -215,7 +356,8 @@ export function HomePage() {
               rel="noopener noreferrer"
               className={styles.journalSecondary}
             >
-              {t("blog.instagram")} <ArrowUpRight className={styles.buttonIcon} />
+              {t("blog.instagram")}{" "}
+              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
             </a>
           </div>
         </div>

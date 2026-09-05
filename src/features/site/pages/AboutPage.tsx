@@ -1,11 +1,13 @@
 import portraitImage from "@/assets/natalii-street.png";
+import { ABOUT_CONTENT } from "@/content/site";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
 import { useI18n } from "@/shared/i18n/useI18n";
 import { Section } from "@/shared/ui/Section";
 import styles from "./AboutPage.module.scss";
 
 export function AboutPage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const about = ABOUT_CONTENT[lang];
 
   usePageMeta({
     title: "Про мене — Nataliia Dyka | Patent Attorney of Ukraine",
@@ -16,13 +18,19 @@ export function AboutPage() {
   });
 
   return (
-    <Section eyebrow={t("about.eyebrow")} title={t("about.title")}>
-      <p className={styles.role}>{t("about.role")}</p>
+    <Section eyebrow={t("about.eyebrow")} title={about.title}>
+      <p className={styles.role}>{about.role}</p>
       <div className={styles.content}>
         <div className={styles.copy}>
-          <p>{t("about.p1")}</p>
-          <p>{t("about.p2")}</p>
-          <p>{t("about.p3")}</p>
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <blockquote className={styles.quote}>
+            {about.quote.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <cite>{about.signature}</cite>
+          </blockquote>
         </div>
 
         <aside className={styles.aside}>
