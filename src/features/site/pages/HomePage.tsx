@@ -3,8 +3,8 @@ import { useState } from "react";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 
 import heroImage from "@/assets/hero-main.png";
-import streetImage from "@/assets/natalii-street.png";
-import knuImage from "@/assets/knu-real.png";
+import streetImage from "@/assets/nataliia-portrait-ivory.png";
+import knuImage from "@/assets/knu-ivory.png";
 import {
   ABOUT_CONTENT,
   CONTACT,
@@ -127,11 +127,7 @@ export function HomePage() {
           <div className={styles.heroImageWrap}>
             <img
               src={heroImage}
-              alt={
-                uk
-                  ? "Портрет Наталії Дикої"
-                  : "Portrait of Nataliia Dyka"
-              }
+              alt={uk ? "Портрет Наталії Дикої" : "Portrait of Nataliia Dyka"}
             />
             <figcaption className={styles.heroCaption}>
               {heroCaption}
@@ -169,11 +165,7 @@ export function HomePage() {
               <figure className={styles.streetFigure}>
                 <img
                   src={streetImage}
-                  alt={
-                    uk
-                      ? "Наталія Дика на вулиці Києва"
-                      : "Nataliia Dyka in Kyiv"
-                  }
+                  alt={uk ? "Наталія Дика" : "Nataliia Dyka"}
                   loading="lazy"
                   className={styles.streetPhoto}
                 />

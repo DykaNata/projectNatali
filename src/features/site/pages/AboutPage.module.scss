@@ -17,7 +17,7 @@
   flex: 1.4 1 0;
   flex-direction: column;
   gap: 1.5rem;
-  color: color-mix(in oklch, var(--foreground), transparent 15%);
+  color: var(--foreground);
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.7;
 }
@@ -88,7 +88,7 @@
   }
 
   span:first-child {
-    color: color-mix(in oklch, var(--muted-foreground), transparent 40%);
+    color: var(--muted-foreground);
     font-family: var(--font-display);
   }
 }
@@ -98,7 +98,6 @@
   aspect-ratio: 3 / 4;
   margin-top: 2.5rem;
   object-fit: cover;
-  filter: grayscale(1);
 }
 
 .caption {

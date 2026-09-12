@@ -3,7 +3,7 @@
   max-width: 48rem;
   flex-direction: column;
   gap: 1.5rem;
-  color: color-mix(in oklch, var(--foreground), transparent 15%);
+  color: var(--foreground);
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.7;
 

@@ -11,7 +11,7 @@
   transition: background-color 180ms ease;
 
   &:hover {
-    background: color-mix(in oklch, var(--secondary), transparent 60%);
+    background: var(--secondary);
   }
 
   h3 {
@@ -20,14 +20,14 @@
 
   p {
     max-width: 36rem;
-    color: color-mix(in oklch, var(--foreground), transparent 20%);
+    color: var(--foreground);
     font-size: 1rem;
     line-height: 1.7;
   }
 }
 
 .number {
-  color: color-mix(in oklch, var(--muted-foreground), transparent 40%);
+  color: var(--muted-foreground);
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 1.875rem);
 }

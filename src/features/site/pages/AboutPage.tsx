@@ -1,4 +1,4 @@
-import portraitImage from "@/assets/natalii-street.png";
+import portraitImage from "@/assets/nataliia-portrait-ivory.png";
 import { ABOUT_CONTENT } from "@/content/site";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
 import { useI18n } from "@/shared/i18n/useI18n";
@@ -43,8 +43,12 @@ export function AboutPage() {
               </li>
             ))}
           </ul>
-          <img src={portraitImage} alt="Nataliia Dyka in Kyiv" loading="lazy" className={styles.photo} />
-          <p className={styles.caption}>Kyiv · 2026</p>
+          <img
+            src={portraitImage}
+            alt="Nataliia Dyka"
+            loading="lazy"
+            className={styles.photo}
+          />
         </aside>
       </div>
     </Section>
