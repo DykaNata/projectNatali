@@ -1,6 +1,5 @@
 import trademark01 from "@/assets/trademarks/image1.png";
 import trademark02 from "@/assets/trademarks/image2.png";
-import trademark03 from "@/assets/trademarks/image3.png";
 import trademark04 from "@/assets/trademarks/image4.png";
 import trademark05 from "@/assets/trademarks/image5.png";
 import trademark06 from "@/assets/trademarks/image6.png";
@@ -28,7 +27,6 @@ import trademark27 from "@/assets/trademarks/image27.png";
 import trademark28 from "@/assets/trademarks/image28.png";
 import trademark29 from "@/assets/trademarks/image29.png";
 import trademark30 from "@/assets/trademarks/image30.png";
-import trademark31 from "@/assets/trademarks/image31.png";
 import trademark32 from "@/assets/trademarks/image32.png";
 import trademark33 from "@/assets/trademarks/image33.png";
 import trademark34 from "@/assets/trademarks/image34.png";
@@ -39,7 +37,6 @@ import trademark37 from "@/assets/trademarks/image37.png";
 export const REGISTERED_TRADEMARKS = [
   { src: trademark01, alt: "Registered trademark example 01" },
   { src: trademark02, alt: "Registered trademark example 02" },
-  { src: trademark03, alt: "Registered trademark example 03" },
   { src: trademark04, alt: "Registered trademark example 04" },
   { src: trademark05, alt: "Registered trademark example 05" },
   { src: trademark06, alt: "Registered trademark example 06" },
@@ -67,7 +64,6 @@ export const REGISTERED_TRADEMARKS = [
   { src: trademark28, alt: "Registered trademark example 28" },
   { src: trademark29, alt: "Registered trademark example 29" },
   { src: trademark30, alt: "Registered trademark example 30" },
-  { src: trademark31, alt: "Registered trademark example 31" },
   { src: trademark32, alt: "Registered trademark example 32" },
   { src: trademark33, alt: "Registered trademark example 33" },
   { src: trademark34, alt: "Registered trademark example 34" },

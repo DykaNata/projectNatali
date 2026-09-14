@@ -1,12 +1,10 @@
+import { AboutSection } from "../components/AboutSection";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Pause, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import heroImage from "@/assets/hero-main.png";
-import streetImage from "@/assets/nataliia-portrait-ivory.png";
-import knuImage from "@/assets/knu-ivory.png";
 import {
-  ABOUT_CONTENT,
   CONTACT,
   SERVICE_KEYS,
   TRADEMARKS_CONTENT,
@@ -18,13 +16,13 @@ import styles from "./HomePage.module.scss";
 
 export function HomePage() {
   const { t, lang } = useI18n();
-  const [logosPaused, setLogosPaused] = useState(false);
+  const [visibleBrands, setVisibleBrands] = useState(10);
 
   usePageMeta({
-    title: "Nataliia Dyka — Own Your Ideas | Патентний повірений України",
+    title: "Nataliia Dyka — Захищені ідеї — твоя перевага. | Патентний повірений України",
     description:
       "Комплексний супровід у сфері інтелектуальної власності для бізнесу та митців. Торговельні марки, авторське право, дизайни, договори ІВ.",
-    ogTitle: "Nataliia Dyka — Own Your Ideas",
+    ogTitle: "Nataliia Dyka — Захищені ідеї — твоя перевага.",
     path: "/",
   });
 
@@ -35,28 +33,19 @@ export function HomePage() {
     ? "Юрист з інтелектуальної власності · Патентний повірений"
     : "Intellectual Property Lawyer · Patent Attorney";
   const heroCaption = uk
-    ? "Київ · Інтелектуальна власність"
-    : "Kyiv · Intellectual Property";
-  const about = ABOUT_CONTENT[lang];
+    ? "Київ · Україна"
+    : "Kyiv · Ukraine";
   const trademarks = TRADEMARKS_CONTENT[lang];
-  const logoMotionLabel = uk
-    ? logosPaused
-      ? "Відновити рух логотипів"
-      : "Зупинити рух логотипів"
-    : logosPaused
-      ? "Resume logo motion"
-      : "Pause logo motion";
-
   const heroProof = uk
     ? [
         { value: "№ 526", label: "Патентний повірений України" },
         { value: "10+", label: "років практики у сфері ІВ" },
-        { value: "UA / INTL", label: "реєстрація та захист брендів" },
+        { value: "Україна і світ", label: "Супровід українського та іноземного бізнесу" },
       ]
     : [
         { value: "No. 526", label: "Patent Attorney of Ukraine" },
         { value: "10+", label: "years in IP practice" },
-        { value: "UA / INTL", label: "brand registration and protection" },
+        { value: "Ukraine & beyond", label: "Supporting Ukrainian and international businesses" },
       ];
 
   const quickNav = [
@@ -72,19 +61,10 @@ export function HomePage() {
       {/* HERO */}
       <section id="top" className={styles.hero}>
         <div className={styles.heroText}>
-          <div className={styles.eyebrowRow}>
-            <span className={styles.rule} />
-            <span className={styles.eyebrow}>{t("hero.eyebrow")}</span>
-          </div>
-
           <h1 className={styles.heroTitle}>
-            Own&nbsp;Your
-            <br />
-            <span>Ideas</span>
-            <span className={styles.dot}>.</span>
+            {uk ? "Захищені ідеї —" : "Protected ideas —"}
+            <span>{uk ? "твоя перевага." : "your advantage."}</span>
           </h1>
-
-          {uk && <p className={styles.heroTranslation}>{t("hero.titleUa")}</p>}
 
           <div className={styles.heroNameRow}>
             <span className={styles.heroNameRule} />
@@ -122,22 +102,19 @@ export function HomePage() {
           </ul>
         </div>
 
-        <div className={styles.heroMedia}>
-          <span className={styles.heroFrame} aria-hidden />
+        <figure className={styles.heroMedia}>
           <div className={styles.heroImageWrap}>
             <img
               src={heroImage}
               alt={uk ? "Портрет Наталії Дикої" : "Portrait of Nataliia Dyka"}
             />
-            <figcaption className={styles.heroCaption}>
-              {heroCaption}
-            </figcaption>
           </div>
-        </div>
+          <figcaption className={styles.heroCaption}>{heroCaption}</figcaption>
+        </figure>
       </section>
 
       {/* QUICK NAV */}
-      <nav className={styles.quickNav}>
+      <nav className={styles.quickNav} aria-label={uk ? "Розділи сайту" : "Site sections"}>
         <div className={styles.quickNavInner}>
           {quickNav.map((item) => (
             <Link key={item.to} to={item.to} className={styles.quickNavLink}>
@@ -152,60 +129,7 @@ export function HomePage() {
       </nav>
 
       {/* ABOUT */}
-      <section id="about" className={styles.about}>
-        <div className={styles.eyebrowRow}>
-          <span className={styles.rule} />
-          <span className={styles.eyebrow}>{t("home.about.eyebrow")}</span>
-        </div>
-
-        <div className={styles.aboutContent}>
-          <div className={styles.aboutPhotos}>
-            <div className={styles.streetWrap}>
-              <span className={styles.aboutFrame} aria-hidden />
-              <figure className={styles.streetFigure}>
-                <img
-                  src={streetImage}
-                  alt={uk ? "Наталія Дика" : "Nataliia Dyka"}
-                  loading="lazy"
-                  className={styles.streetPhoto}
-                />
-              </figure>
-            </div>
-
-            <figure className={styles.knuFigure}>
-              <img
-                src={knuImage}
-                alt={
-                  uk
-                    ? "Червоний корпус КНУ імені Тараса Шевченка"
-                    : "Red building of Taras Shevchenko National University"
-                }
-                loading="lazy"
-                className={styles.knuPhoto}
-              />
-              <figcaption className={styles.caption}>
-                {t("home.about.knuCaption")}
-              </figcaption>
-            </figure>
-          </div>
-
-          <div className={styles.aboutText}>
-            <h2>{about.title}</h2>
-            <p className={styles.aboutRole}>{about.role}</p>
-            <div className={styles.aboutParagraphs}>
-              {about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <blockquote className={styles.aboutQuote}>
-              {about.quote.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <cite>{about.signature}</cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* TRADEMARKS */}
       <section id="trademarks" className={styles.trademarks}>
@@ -215,7 +139,7 @@ export function HomePage() {
             <span className={styles.eyebrow}>{trademarks.eyebrow}</span>
           </div>
           <div className={styles.trademarksHeader}>
-            <h2>{trademarks.title}</h2>
+            <h2>{uk ? <>Бренди, які довірили<span>свій захист</span></> : trademarks.title}</h2>
             <div>
               {trademarks.intro.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -226,47 +150,38 @@ export function HomePage() {
 
         {REGISTERED_TRADEMARKS.length > 0 ? (
           <>
-            <div className={styles.marqueeControls}>
-              <button
-                type="button"
-                className={styles.marqueeButton}
-                onClick={() => setLogosPaused((value) => !value)}
-                aria-pressed={logosPaused}
-              >
-                {logosPaused ? (
-                  <Play className={styles.marqueeIcon} aria-hidden="true" />
-                ) : (
-                  <Pause className={styles.marqueeIcon} aria-hidden="true" />
-                )}
-                {logoMotionLabel}
-              </button>
-            </div>
-            <div
-              className={[
-                styles.logoMarquee,
-                logosPaused ? styles.logoMarqueePaused : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              aria-label={trademarks.title}
-            >
-              {[0, 1].map((track) => (
-                <div
-                  key={track}
-                  className={styles.logoTrack}
-                  aria-hidden={track === 1}
-                >
-                  {REGISTERED_TRADEMARKS.map((logo) => (
-                    <div
-                      key={`${track}-${logo.src}`}
-                      className={styles.logoItem}
-                    >
-                      <img src={logo.src} alt={logo.alt} loading="lazy" />
-                    </div>
-                  ))}
-                </div>
+            <ul id="brand-gallery" className={styles.logoGrid} aria-label={trademarks.eyebrow}>
+              {REGISTERED_TRADEMARKS.slice(0, visibleBrands).map((logo) => (
+                <li key={logo.src} className={styles.logoItem}>
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </li>
               ))}
-            </div>
+            </ul>
+            {REGISTERED_TRADEMARKS.length > 10 && (
+              <div className={styles.brandControls}>
+                <button type="button" className={styles.moreBrands}
+                  aria-controls="brand-gallery"
+                  aria-expanded={visibleBrands > 10}
+                  onClick={() => {
+                    const collapsing = visibleBrands > 10;
+                    setVisibleBrands(collapsing ? 10 : REGISTERED_TRADEMARKS.length);
+                    if (collapsing) {
+                      document.getElementById("trademarks")?.scrollIntoView({
+                        behavior: "instant",
+                        block: "start",
+                      });
+                    }
+                  }}>
+                  {visibleBrands > 10
+                    ? (uk ? "Показати менше" : "Show less")
+                    : (uk ? "Показати більше" : "Show more")}
+                  <ArrowUpRight aria-hidden="true" />
+                </button>
+              </div>
+            )}
+            <p className={styles.brandStatus} role="status">
+              {uk ? `Показано ${Math.min(visibleBrands, REGISTERED_TRADEMARKS.length)} із ${REGISTERED_TRADEMARKS.length} брендів` : `Showing ${Math.min(visibleBrands, REGISTERED_TRADEMARKS.length)} of ${REGISTERED_TRADEMARKS.length} brands`}
+            </p>
           </>
         ) : (
           <p className={styles.trademarkEmpty}>{trademarks.empty}</p>

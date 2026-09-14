@@ -1,14 +1,7 @@
-import portraitImage from "@/assets/nataliia-portrait-ivory.png";
-import { ABOUT_CONTENT } from "@/content/site";
+import { AboutSection } from "../components/AboutSection";
 import { usePageMeta } from "@/shared/lib/usePageMeta";
-import { useI18n } from "@/shared/i18n/useI18n";
-import { Section } from "@/shared/ui/Section";
-import styles from "./AboutPage.module.scss";
 
 export function AboutPage() {
-  const { t, lang } = useI18n();
-  const about = ABOUT_CONTENT[lang];
-
   usePageMeta({
     title: "Про мене — Nataliia Dyka | Patent Attorney of Ukraine",
     description:
@@ -17,40 +10,6 @@ export function AboutPage() {
     path: "/about",
   });
 
-  return (
-    <Section eyebrow={t("about.eyebrow")} title={about.title}>
-      <p className={styles.role}>{about.role}</p>
-      <div className={styles.content}>
-        <div className={styles.copy}>
-          {about.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          <blockquote className={styles.quote}>
-            {about.quote.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <cite>{about.signature}</cite>
-          </blockquote>
-        </div>
 
-        <aside className={styles.aside}>
-          <div className={styles.eyebrow}>{t("about.factsTitle")}</div>
-          <ul className={styles.facts}>
-            {[1, 2, 3, 4].map((i) => (
-              <li key={i}>
-                <span>0{i}</span>
-                <span>{t(`about.fact${i}`)}</span>
-              </li>
-            ))}
-          </ul>
-          <img
-            src={portraitImage}
-            alt="Nataliia Dyka"
-            loading="lazy"
-            className={styles.photo}
-          />
-        </aside>
-      </div>
-    </Section>
-  );
+  return <AboutSection standalone />;
 }

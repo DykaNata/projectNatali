@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import { useI18n } from "@/shared/i18n/useI18n";
 import styles from "./Header.module.scss";
@@ -55,10 +55,6 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link to="/contact" className={styles.headerCta}>
-            {t("nav.contact")}{" "}
-            <ArrowUpRight className={styles.ctaIcon} aria-hidden="true" />
-          </Link>
           <div className={styles.languageSwitch}>
             <button
               type="button"
