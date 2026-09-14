@@ -8,6 +8,7 @@ import { ErrorPage } from "@/app/ErrorPage";
 import { Layout } from "@/app/Layout";
 import { NotFoundPage } from "@/app/NotFoundPage";
 import { AboutPage } from "@/features/site/pages/AboutPage";
+import { BlogArticlePage } from "@/features/site/pages/BlogArticlePage";
 import { BlogPage } from "@/features/site/pages/BlogPage";
 import { ContactPage } from "@/features/site/pages/ContactPage";
 import { ForWhomPage } from "@/features/site/pages/ForWhomPage";
@@ -51,6 +52,12 @@ const blogRoute = createRoute({
   component: BlogPage,
 });
 
+const blogArticleRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog/$postId",
+  component: BlogArticlePage,
+});
+
 const contactRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/contact",
@@ -69,6 +76,7 @@ const routeTree = rootRoute.addChildren([
   forWhomRoute,
   servicesRoute,
   blogRoute,
+  blogArticleRoute,
   contactRoute,
   privacyRoute,
 ]);

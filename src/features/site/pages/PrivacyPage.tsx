@@ -8,8 +8,8 @@ export function PrivacyPage() {
   const isUk = lang === "uk";
 
   usePageMeta({
-    title: "Політика конфіденційності — Nataliia Dyka",
-    description: "Політика конфіденційності сайту Nataliia Dyka, патентного повіреного України.",
+    title: lang === "uk" ? "Політика конфіденційності — Nataliia Dyka" : "Privacy Policy — Nataliia Dyka",
+    description: lang === "uk" ? "Політика конфіденційності сайту Nataliia Dyka, патентного повіреного України." : "Privacy policy for the website of Nataliia Dyka, Ukrainian patent attorney.",
     ogTitle: "Privacy Policy — Nataliia Dyka",
     path: "/privacy",
   });

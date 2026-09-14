@@ -15,7 +15,7 @@
 }
 
 .eyebrow {
-  color: var(--muted-foreground);
+  color: var(--deep-petrol);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.24em;
@@ -523,80 +523,84 @@ a.contactCard:hover {
   color: var(--muted-foreground);
 }
 
-/* ---------- journal (light band) ---------- */
+/* ---------- blog and Instagram ---------- */
 .journal {
-  background: var(--blush);
-  border-top: 1px solid var(--accent-primary);
-  scroll-margin-top: 5.5rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  width: min(100% - 6rem, 87.5rem);
+  margin: clamp(3rem, 6vw, 6rem) auto;
+  border-top: 2px solid var(--deep-petrol);
+  scroll-margin-top: 6.5rem;
+  font-family: "Manrope", system-ui, sans-serif;
 }
-
-.journalInner {
-  width: min(100% - 3rem, 73.75rem);
-  margin-inline: auto;
-  padding-block: clamp(4rem, 8vw, 7rem);
-}
-
-.journalTitle {
-  max-width: 18ch;
-  margin: 1.375rem 0 0;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.125rem, 5vw, 3.625rem);
-  line-height: 1.02;
-  letter-spacing: 0;
-}
-
-.journalIntro {
-  max-width: 52ch;
-  margin: 1.375rem 0 0;
-  color: var(--foreground);
-  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
-  line-height: 1.75;
-}
-
-.journalActions {
+.blogPanel, .instagramPanel {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.875rem;
-  margin-top: 2.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: clamp(2rem, 4vw, 4rem);
 }
-
-.journalPrimary,
-.journalSecondary {
+.blogPanel { border: 1px solid var(--porcelain); border-top: 0; }
+.journalTitle {
+  margin-block: 3rem;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--graphite);
+}
+.blogButton, .instagramButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5625rem;
-  min-height: 2.75rem;
-  padding: 0.9375rem 1.625rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition:
-    background-color 200ms ease,
-    border-color 200ms ease,
-    color 200ms ease;
+  gap: 0.875rem;
+  min-height: 3.5rem;
+  max-width: 100%;
+  margin-top: auto;
+  padding: 1rem 1.5rem;
+  font-size: clamp(0.9375rem, 1.3vw, 1.125rem);
+  line-height: 1.5;
+  border: 1px solid;
+  svg { width: 1.25rem; height: 1.25rem; flex: none; }
 }
-
-.journalPrimary {
+.blogButton {
+  border-color: var(--deep-petrol);
+  color: var(--graphite);
+  transition: color 180ms ease;
+  svg { color: var(--cherry-red); }
+  &:hover { color: var(--cherry-red); }
+}
+.instagramPanel {
   background: var(--deep-petrol);
-  color: var(--background);
-
-  &:hover {
-    background: var(--graphite);
+  color: var(--soft-ivory);
+  &:hover, &:focus-visible {
+    .instagramHandle, .instagramButton svg { color: var(--cherry-red); }
   }
+  &:focus-visible { outline-offset: 4px; }
 }
-
-.journalSecondary {
-  border: 1px solid var(--deep-petrol);
-  color: var(--ink);
-
-  &:hover {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
-  }
+.instagramIcon { width: 3rem; height: 3rem; stroke-width: 1.5; }
+.instagramTitle {
+  margin-top: 2rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  line-height: 1.08;
+  font-weight: 400;
+  color: var(--soft-ivory);
+}
+.instagramHandle {
+  margin-block: 2rem 3rem;
+  font-size: clamp(1.5rem, 2.7vw, 2.5rem);
+  overflow-wrap: anywhere;
+  transition: color 180ms ease;
+}
+.instagramButton { border-color: var(--soft-ivory); }
+.instagramButton svg { transition: color 180ms ease; }
+@media (max-width: 959px) {
+  .journal { width: calc(100% - 3rem); grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .journal { width: calc(100% - 2rem); }
+  .blogPanel, .instagramPanel { padding: 2rem 1.5rem; }
 }
 
 /* ---------- responsive ---------- */
@@ -623,7 +627,7 @@ a.contactCard:hover {
 
   .servicesInner,
   .contact,
-  .journalInner {
+  .unusedJournalInner {
     width: min(100% - 2rem, 73.75rem);
   }
 

@@ -84,7 +84,7 @@ export function Header() {
             type="button"
             className={styles.menuButton}
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={lang === "uk" ? (open ? "Закрити меню" : "Відкрити меню") : (open ? "Close menu" : "Open menu")}
             aria-controls={mobileNavId}
             aria-expanded={open}
           >

@@ -1,12 +1,12 @@
+import { ContactSection } from "../components/ContactSection";
+import { ServicesSection } from "../components/ServicesSection";
 import { AboutSection } from "../components/AboutSection";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Instagram } from "lucide-react";
 
 import heroImage from "@/assets/hero-main.png";
 import {
-  CONTACT,
-  SERVICE_KEYS,
   TRADEMARKS_CONTENT,
 } from "@/content/site";
 import { REGISTERED_TRADEMARKS } from "@/content/trademarks";
@@ -19,15 +19,13 @@ export function HomePage() {
   const [visibleBrands, setVisibleBrands] = useState(10);
 
   usePageMeta({
-    title: "Nataliia Dyka — Захищені ідеї — твоя перевага. | Патентний повірений України",
-    description:
-      "Комплексний супровід у сфері інтелектуальної власності для бізнесу та митців. Торговельні марки, авторське право, дизайни, договори ІВ.",
-    ogTitle: "Nataliia Dyka — Захищені ідеї — твоя перевага.",
+    title: lang === "uk" ? "Nataliia Dyka — Захищені ідеї — твоя перевага. | Патентний повірений України" : "Nataliia Dyka — Protected ideas — your advantage. | Patent Attorney of Ukraine",
+    description: lang === "uk" ? "Комплексний супровід у сфері інтелектуальної власності для бізнесу та митців. Торговельні марки, авторське право, дизайни, договори ІВ." : "Comprehensive intellectual property support for businesses and creators. Trademarks, copyright, industrial designs and IP agreements.",
+    ogTitle: lang === "uk" ? "Nataliia Dyka — Захищені ідеї — твоя перевага." : "Nataliia Dyka — Protected ideas — your advantage.",
     path: "/",
   });
 
   const uk = lang === "uk";
-  const servicesTitle = uk ? "Напрями практики" : "Areas of practice";
   const heroName = uk ? "Наталія Дика" : "Nataliia Dyka";
   const heroRole = uk
     ? "Юрист з інтелектуальної власності · Патентний повірений"
@@ -189,84 +187,38 @@ export function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className={styles.servicesSection}>
-        <div className={styles.servicesInner}>
-          <div className={styles.eyebrowRow}>
-            <span className={styles.rule} />
-            <span className={styles.eyebrow}>{t("services.eyebrow")}</span>
-          </div>
-          <h2 className={styles.servicesTitle}>{servicesTitle}</h2>
-
-          <div className={styles.serviceList}>
-            {SERVICE_KEYS.map((k, i) => (
-              <Link key={k} to="/contact" className={styles.serviceRow}>
-                <div className={styles.serviceNumber}>0{i + 1}</div>
-                <div className={styles.serviceBody}>
-                  <h3 className={styles.serviceName}>
-                    {t(`svc.${k}.title`)}
-                    <ArrowUpRight
-                      className={styles.serviceArrow}
-                      aria-hidden="true"
-                    />
-                  </h3>
-                  <p>{t(`svc.${k}.desc`)}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* CONTACT */}
-      <section id="contact" className={styles.contact}>
-        <div className={styles.eyebrowRow}>
-          <span className={styles.rule} />
-          <span className={styles.eyebrow}>{t("contact.eyebrow")}</span>
-        </div>
-        <h2 className={styles.contactTitle}>{t("contact.title")}</h2>
-        <p className={styles.contactSub}>{t("contact.sub")}</p>
+      <ContactSection />
 
-        <div className={styles.contactCards}>
-          <a href={CONTACT.phone.href} className={styles.contactCard}>
-            <div className={styles.contactLabel}>{t("contact.phone")}</div>
-            <div className={styles.contactValue}>{CONTACT.phone.label}</div>
-          </a>
-          <a href={CONTACT.email.href} className={styles.contactCard}>
-            <div className={styles.contactLabel}>{t("contact.email")}</div>
-            <div className={styles.contactValue}>{CONTACT.email.label}</div>
-          </a>
-          <div className={styles.contactCard}>
-            <div className={styles.contactLabel}>{t("contact.location")}</div>
-            <div className={styles.contactValue}>{t("contact.city")}</div>
-            <div className={styles.contactHours}>{t("contact.hoursValue")}</div>
-          </div>
-        </div>
-      </section>
-
-      {/* JOURNAL (light band) */}
+      {/* BLOG AND INSTAGRAM */}
       <section id="journal" className={styles.journal}>
-        <div className={styles.journalInner}>
+        <div className={styles.blogPanel}>
           <div className={styles.eyebrowRow}>
-            <span className={styles.rule} />
             <span className={styles.eyebrow}>{t("blog.eyebrow")}</span>
+            <span className={styles.rule} aria-hidden="true" />
           </div>
           <h2 className={styles.journalTitle}>{t("blog.title")}</h2>
-          <div className={styles.journalActions}>
-            <Link to="/blog" className={styles.journalPrimary}>
-              {t("blog.openBlog")}{" "}
-              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
-            </Link>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.journalSecondary}
-            >
-              {t("blog.instagram")}{" "}
-              <ArrowUpRight className={styles.buttonIcon} aria-hidden="true" />
-            </a>
-          </div>
+          <Link to="/blog" className={styles.blogButton}>
+            {uk ? "Читати блог" : "Read the blog"}
+            <ArrowUpRight aria-hidden="true" />
+          </Link>
         </div>
+        <a href="https://www.instagram.com/nataliia.dyka/"
+          target="_blank" rel="noopener noreferrer"
+          className={styles.instagramPanel}
+          aria-label={uk ? "Перейти в Instagram @nataliia.dyka" : "Visit Instagram @nataliia.dyka"}>
+          <Instagram className={styles.instagramIcon} aria-hidden="true" />
+          <h2 className={styles.instagramTitle}>
+            {uk ? "Слідкуйте" : "Follow me"}<br />{uk ? "в Instagram" : "on Instagram"}
+          </h2>
+          <span className={styles.instagramHandle}>@nataliia.dyka</span>
+          <span className={styles.instagramButton}>
+            {uk ? "Перейти в Instagram" : "Visit Instagram"}
+            <ArrowUpRight aria-hidden="true" />
+          </span>
+        </a>
       </section>
     </>
   );

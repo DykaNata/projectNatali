@@ -30,19 +30,19 @@ const dictionaries: Record<Lang, Dict> = {
     "services.viewAll": "Переглянути всі послуги",
     "svc.consult.title": "Консультації у сфері інтелектуальної власності",
     "svc.consult.desc":
-      "Коли не зрозуміло з чого почати або за що хапатись — все впорядкує професійна консультація. Детально обговоримо Вашу ситуацію, підберемо найкращі інструменти захисту та побудуємо ефективну правову позицію разом.",
+      "Коли незрозуміло, з чого почати або за що хапатися, — усе впорядкує професійна консультація. Детально обговоримо вашу ситуацію, підберемо найкращі інструменти захисту та побудуємо ефективну правову позицію разом.",
     "svc.tm.title": "Торговельні марки",
     "svc.tm.desc":
       "Реєстрація, продовження дії, передача прав, попередній пошук, моніторинг та аналіз ТМ конкурентів, опозиції, захист прав, повний супровід портфеля торговельних марок в Україні та за кордоном.",
     "svc.copy.title": "Авторське право",
     "svc.copy.desc":
       "Реєстрація авторських прав та договорів, претензійно-правова робота, супровід діяльності артистів, кіностудій, митців.",
-    "svc.design.title": "Дизайни (Промислові зразки)",
+    "svc.design.title": "Дизайни (промислові зразки)",
     "svc.design.desc":
       "Реєстрація, продовження дії, передача прав, попередній пошук, моніторинг та аналіз ПЗ конкурентів, захист прав, повний супровід портфеля промислових зразків в Україні та за кордоном.",
     "svc.contracts.title": "Договори у сфері ІВ",
     "svc.contracts.desc":
-      "Ліцензійні договори, договори комерційної концесії (франчайзинг), договори про створення на замовлення об'єктів інтелектуальної власності та передачі майнових прав ІВ, договори про нерозголошення конфіденційної інформації (NDA), маркетингові договори, тощо.",
+      "Ліцензійні договори, договори комерційної концесії (франчайзинг), договори про створення на замовлення об'єктів інтелектуальної власності та передачу майнових прав ІВ, договори про нерозголошення конфіденційної інформації (NDA), маркетингові договори тощо.",
     "svc.intl.title": "Міжнародна охорона ІВ",
     "svc.intl.desc":
       "Реєстрація торговельних марок та дизайнів (промислових зразків) за національною, регіональною та міжнародною процедурами в ЄС, США та інших країнах світу.",
@@ -52,7 +52,7 @@ const dictionaries: Record<Lang, Dict> = {
       "Супровід справ про захист від недобросовісної конкуренції в АМКУ, перевірка маркування товарів на відповідність законодавству України та ЄС, супровід справ про захист прав споживачів.",
 
     "about.eyebrow": "Про мене",
-    "about.title": "Наталі Дика",
+    "about.title": "Наталія Дика",
     "about.role":
       "Патентний повірений України № 526 · Юрист з інтелектуальної власності",
     "about.p1":
@@ -72,11 +72,11 @@ const dictionaries: Record<Lang, Dict> = {
     "contact.sub":
       "Напишіть або зателефонуйте — обговоримо ваш запит та сформуємо план дій.",
     "contact.phone": "Контактний телефон",
-    "contact.email": "Email",
+    "contact.email": "Електронна пошта",
     "contact.location": "Локація",
     "contact.city": "Київ, Україна",
     "contact.hours": "Графік",
-    "contact.hoursValue": "Пн–Пт, 10:00 – 19:00",
+    "contact.hoursValue": "Пн–пт, 10:00–19:00",
 
     "blog.eyebrow": "Блог",
     "blog.title": "Блог",
@@ -91,21 +91,21 @@ const dictionaries: Record<Lang, Dict> = {
     "home.about.p1":
       "Мене звати Наталія Дика, я патентний повірений України. Більше 10 років захищаю права інтелектуальної власності найкращих клієнтів та допомагаю комерціалізувати їх ідеї.",
     "home.about.p2":
-      "Я магістр права КНУ імені Тараса Шевченка. Закінчила Університет з відзнакою за спеціалізацією «Інтелектуальна власність».",
+      "Я магістр права КНУ імені Тараса Шевченка. Закінчила університет з відзнакою за спеціалізацією «Інтелектуальна власність».",
     "home.about.p3":
       "Свій професійний шлях розпочинала в провідних юридичних компаніях України (Asters, Juscutum) та більше 6 років очолювала департамент із захисту інтелектуальної власності міжнародного алкогольного холдингу (Global Spirits).",
     "home.about.p4":
       "У 2026 році масштабувала свою діяльність та розпочала власну юридичну практику.",
     "home.about.p5":
-      "Я зареєструвала сотні торговельних марок та дизайнів в Україні та закордоном, супроводжувала діяльність кіностудій та IT-компаній, маю глибокий досвід в FMCG: відповідність маркування товарів законодавству України та ЄС, захист від недобросовісної конкуренції, реклама та маркетинг, а також захист прав споживачів. Мої клієнти успішно працюють по тисячам ліцензійних, франчайзингових та інших договорів, які я для них розробила.",
+      "Я зареєструвала сотні торговельних марок та дизайнів в Україні та за кордоном, супроводжувала діяльність кіностудій та IT-компаній, маю глибокий досвід в FMCG: відповідність маркування товарів законодавству України та ЄС, захист від недобросовісної конкуренції, реклама та маркетинг, а також захист прав споживачів. Мої клієнти успішно працюють за тисячами ліцензійних, франчайзингових та інших договорів, які я для них розробила.",
     "home.about.p6":
       "Щиро закохана у свою справу і кожного дня знову обираю цей шлях.",
     "home.about.p7":
-      "Пам'ятайте, що за Вашою інтелектуальною власністю — майбутнє України.",
+      "Пам'ятайте, що за вашою інтелектуальною власністю — майбутнє України.",
     "home.about.knuCaption": "КНУ імені Тараса Шевченка · Alma mater",
 
     "footer.tagline":
-      "Пам'ятайте, що за Вашою інтелектуальною власністю — наше майбутнє.",
+      "Пам'ятайте, що за вашою інтелектуальною власністю — наше майбутнє.",
     "footer.rights": "Усі права захищені.",
     "footer.privacy": "Політика конфіденційності",
   },
@@ -138,13 +138,13 @@ const dictionaries: Record<Lang, Dict> = {
       "Filing, renewals, assignments, clearance searches, monitoring and analysis of competitors' marks, oppositions, enforcement, and full portfolio management in Ukraine and abroad.",
     "svc.copy.title": "Copyright",
     "svc.copy.desc":
-      "Registration of copyright and agreements, claim and pre-litigation work, ongoing support for artists, film studios and creators.",
+      "Registration of copyright and agreements, handling claims and pre-litigation matters, ongoing support for artists, film studios and creators.",
     "svc.design.title": "Designs (Industrial Designs)",
     "svc.design.desc":
       "Filing, renewals, assignments, clearance searches, monitoring and analysis of competitors' designs, enforcement, and full portfolio management in Ukraine and abroad.",
     "svc.contracts.title": "IP Agreements",
     "svc.contracts.desc":
-      "License agreements, commercial concession (franchising), work-for-hire and IP assignment agreements, non-disclosure agreements (NDA), marketing agreements and more.",
+      "Licence agreements, commercial concession (franchising) agreements, agreements for commissioned works and the assignment of IP rights, non-disclosure agreements (NDAs), marketing agreements and more.",
     "svc.intl.title": "International IP Protection",
     "svc.intl.desc":
       "Registration of trademarks and designs through national, regional and international procedures in the EU, USA and other jurisdictions.",
@@ -177,7 +177,7 @@ const dictionaries: Record<Lang, Dict> = {
     "contact.location": "Location",
     "contact.city": "Kyiv, Ukraine",
     "contact.hours": "Hours",
-    "contact.hoursValue": "Mon–Fri, 10:00 – 19:00",
+    "contact.hoursValue": "Mon–Fri, 10:00–19:00",
 
     "blog.eyebrow": "Journal",
     "blog.title": "Journal",

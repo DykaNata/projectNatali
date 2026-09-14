@@ -1,0 +1,57 @@
+.section {
+  width: min(100% - 6rem, 87.5rem);
+  margin-inline: auto;
+  padding-block: clamp(3rem, 6vw, 6rem);
+  border-bottom: 1px solid var(--deep-petrol);
+  scroll-margin-top: 6.5rem;
+  font-family: "Manrope", system-ui, sans-serif;
+  color: #303436;
+}
+.eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  color: var(--deep-petrol); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  span { width: 3rem; height: 1px; background: var(--deep-petrol); }
+}
+.title {
+  max-width: 20ch; margin-top: 1.5rem;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, 6rem); line-height: 1.05; color: #303436;
+}
+.intro { margin-top: 2rem; font-size: clamp(1rem, 1.5vw, 1.375rem); line-height: 1.7; }
+.contacts { margin-top: 3rem; background: var(--porcelain); }
+.row {
+  display: grid; grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.5fr) 2rem;
+  align-items: center; gap: 1.5rem;
+  padding: 2rem; min-height: 7rem;
+  transition: color 180ms ease, background-color 180ms ease;
+  & + & { border-top: 1px solid #30343626; }
+  &:hover { color: var(--cherry-red); .arrow { color: var(--cherry-red); } }
+  &:active { background: var(--soft-ivory); }
+}
+.label { font-size: 0.75rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--deep-petrol); }
+.value {
+  font-family: var(--font-display); font-size: clamp(1.75rem, 3.2vw, 3.25rem);
+  line-height: 1.2; overflow-wrap: anywhere;
+}
+.arrow { width: 2rem; height: 2rem; color: var(--deep-petrol); transition: color 180ms ease; }
+.details {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0 0;
+  > div:last-child { justify-self: end; text-align: right; }
+  dt { color: var(--deep-petrol); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  dd { margin: 0.75rem 0 0; font-size: 1.125rem; }
+}
+@media (max-width: 959px) {
+  .section { width: calc(100% - 3rem); }
+  .row { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: 0.75rem; }
+  .label { grid-column: 1 / -1; }
+  .arrow { width: 1.5rem; height: 1.5rem; }
+}
+@media (max-width: 520px) {
+  .section { width: calc(100% - 2rem); }
+  .row { padding: 1.5rem 1rem; }
+  .value { font-size: 1.625rem; }
+  .details {
+    grid-template-columns: 1fr;
+    > div:last-child { justify-self: start; text-align: left; }
+  }
+}

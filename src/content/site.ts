@@ -1,6 +1,7 @@
 export const SERVICE_KEYS = ["consult", "tm", "copy", "design", "contracts", "intl", "unfair"] as const;
 
 export const CONTACT = {
+  telegram: { label: "@Nataliia_Dyka", href: "https://t.me/Nataliia_Dyka" },
   phone: {
     label: "+380 95 428 15 28",
     href: "tel:+380954281528",
@@ -17,14 +18,14 @@ export const ABOUT_CONTENT = {
     title: "Наталія Дика",
     paragraphs: [
       "Наталія Дика – патентний повірений України № 526, спеціалізується на торговельних марках, промислових зразках та авторському праві.",
-      "Наталія здобула юридичну освіту в Київському національному університеті імені Тараса Шевченка, закінчивши з відзнакою бакалаврат та магістратуру за спеціалізацією \"Право інтелектуальної власності\".",
-      "Професійний шлях розпочинала у провідних українських юридичних фірмах Asters та Juscutum, де отримала досвід роботи з комплексними юридичними проектами та супроводом бізнесу.",
+      "Наталія здобула юридичну освіту в Київському національному університеті імені Тараса Шевченка, закінчивши з відзнакою бакалаврат та магістратуру за спеціалізацією «Право інтелектуальної власності».",
+      "Професійний шлях розпочинала у провідних українських юридичних фірмах Asters та Juscutum, де отримала досвід роботи з комплексними юридичними проєктами та супроводом бізнесу.",
       "Наступним етапом стала робота в міжнародному алкогольному холдингу Global Spirits, де понад шість років Наталія очолювала напрям захисту інтелектуальної власності. Робота всередині міжнародного бізнесу дала можливість побачити інтелектуальну власність не лише з позиції юриста, а й як один із ключових активів компанії, що потребує стратегічного управління та захисту.",
       "Сьогодні Наталія супроводжує український та міжнародний бізнес у питаннях створення, реєстрації та захисту брендів. Основний напрям практики – торговельні марки: від попереднього аналізу та розробки стратегії реєстрації до супроводу заявок в Україні та за кордоном, подолання відмов, підготовки заперечень і захисту прав на бренди.",
       "Також Наталія консультує та надає послуги з питань промислових зразків, авторського права, недобросовісної конкуренції та інших аспектів використання й захисту об'єктів інтелектуальної власності.",
     ],
     quote: [
-      "Досвід роботи як у юридичному консалтингу, так і всередині міжнародного бізнесу дозволяє дивитися на інтелектуальну власність ширше за процедури реєстрації. Моє завдання - зрозуміти бізнес клієнта, його ринки та плани розвитку і побудувати систему захисту, яка працюватиме разом із бізнесом.",
+      "Досвід роботи як у юридичному консалтингу, так і всередині міжнародного бізнесу дозволяє дивитися на інтелектуальну власність ширше за процедури реєстрації. Моє завдання — зрозуміти бізнес клієнта, його ринки та плани розвитку і побудувати систему захисту, яка працюватиме разом із бізнесом.",
       "Я закохалася в інтелектуальну власність ще студенткою. Для мене це особлива галузь, адже саме тут зустрічаються право, бізнес і творчість – три абсолютно різні світи, які разом допомагають ідеям ставати цінними активами.",
       "Відтоді минуло багато років, а я й досі закохуюся у свою справу щодня.",
     ],
@@ -34,11 +35,11 @@ export const ABOUT_CONTENT = {
     role: "Patent Attorney of Ukraine No. 526 · Intellectual Property Lawyer",
     title: "Nataliia Dyka",
     paragraphs: [
-      "Nataliia Dyka is Patent Attorney of Ukraine No. 526, specialising in trademarks, industrial designs and copyright.",
-      "Nataliia studied law at Taras Shevchenko National University of Kyiv, graduating with honours from both bachelor and master programmes in Intellectual Property Law.",
-      "She began her career at leading Ukrainian law firms Asters and Juscutum, where she worked on complex legal projects and business support.",
-      "She then joined the international spirits holding Global Spirits, where for more than six years she led the intellectual property protection function. Working inside an international business shaped her view of IP not only as a legal procedure, but as a key company asset requiring strategic management and protection.",
-      "Today Nataliia supports Ukrainian and international businesses in creating, registering and protecting brands. Her core practice is trademarks: from preliminary analysis and registration strategy to filings in Ukraine and abroad, overcoming refusals, preparing oppositions and protecting brand rights.",
+      "Nataliia Dyka is a Ukrainian patent attorney (No. 526), specialising in trademarks, industrial designs and copyright.",
+      "Nataliia studied law at Taras Shevchenko National University of Kyiv, earning both her bachelor’s and master’s degrees with honours, specialising in Intellectual Property Law.",
+      "She began her career at leading Ukrainian law firms Asters and Juscutum, where she handled complex legal projects and provided legal support to businesses.",
+      "She then joined the international spirits group Global Spirits, where for more than six years she led its intellectual property protection team. Working inside an international business shaped her view of IP not only as a legal procedure, but as a key company asset requiring strategic management and protection.",
+      "Today Nataliia supports Ukrainian and international businesses in creating, registering and protecting brands. Her core area of practice is trademarks: from preliminary analysis and registration strategy to filings in Ukraine and abroad, overcoming refusals, preparing oppositions and protecting brand rights.",
       "Nataliia also advises on industrial designs, copyright, unfair competition and other aspects of using and protecting intellectual property.",
     ],
     quote: [
@@ -60,7 +61,7 @@ export const WHO_FOR_CONTENT = {
     ],
     groups: [
       {
-        title: "FMCG (виробникам)",
+        title: "FMCG та іншим виробникам",
         body: [
           "Компаніям, які створюють і виводять на ринок продукти харчування, напої, косметику та інші товари широкого споживання.",
           "Окрім захисту торговельних марок і дизайну продукції, консультую щодо пакування, маркування, рекламних тверджень та ризиків недобросовісної конкуренції.",
@@ -84,7 +85,7 @@ export const WHO_FOR_CONTENT = {
         title: "Юридичним фірмам та адвокатам",
         body: [
           "Юридичним компаніям і незалежним адвокатам, які не мають власної практики у сфері інтелектуальної власності.",
-          "Працюю як зовнішній IP-експерт та беру на себе профільні питання клієнтів - від реєстрації об'єктів інтелектуальної власності до складніших процедур їх захисту.",
+          "Працюю як зовнішній IP-експерт та беру на себе профільні питання клієнтів — від реєстрації об'єктів інтелектуальної власності до складніших процедур їх захисту.",
         ],
       },
     ],
@@ -98,7 +99,7 @@ export const WHO_FOR_CONTENT = {
     ],
     groups: [
       {
-        title: "FMCG producers",
+        title: "FMCG and other manufacturers",
         body: [
           "Companies creating and launching food, beverages, cosmetics and other consumer goods.",
           "In addition to protecting trademarks and product designs, I advise on packaging, labelling, advertising claims and unfair competition risks.",
@@ -108,7 +109,7 @@ export const WHO_FOR_CONTENT = {
         title: "Creative industries",
         body: [
           "Artists, authors, designers, photographers, musicians, film industry professionals and other creators.",
-          "I help protect copyright, creative works and pseudonyms, regulate IP use and prepare the necessary agreements.",
+          "I help protect copyright, creative works and pseudonyms, address the use of intellectual property and prepare the necessary agreements.",
         ],
       },
       {
@@ -122,7 +123,7 @@ export const WHO_FOR_CONTENT = {
         title: "Law firms and attorneys",
         body: [
           "Law firms and independent attorneys without their own intellectual property practice.",
-          "I work as an external IP expert and handle specialist client matters, from registration of IP objects to more complex enforcement procedures.",
+          "I work as an external IP expert and handle specialist client matters, from registering intellectual property rights to more complex enforcement procedures.",
         ],
       },
     ],
@@ -141,7 +142,7 @@ export const TRADEMARKS_CONTENT = {
   },
   en: {
     eyebrow: "Registered Trademarks",
-    title: "Brands that trusted their protection",
+    title: "Brands that entrusted me with their protection",
     intro: [
       "I value every client and am especially proud that many collaborations have continued for years.",
       "I have been trusted with protecting hundreds of brands. Here are just some of them:",
@@ -200,7 +201,7 @@ export const BLOG_POSTS: Array<{
       en: [
         {
           type: "paragraph",
-          text: "A patent attorney is a specialist who has passed state qualification and is authorised to professionally represent clients in registration and protection of intellectual property rights.",
+          text: "A patent attorney is a specialist who has completed the state qualification process and is authorised to represent clients professionally in matters involving the registration and protection of their intellectual property rights.",
         },
         {
           type: "paragraph",
@@ -266,7 +267,7 @@ export const BLOG_POSTS: Array<{
         { type: "heading", text: "Безпечно рекламувати та розвивати бренд" },
         {
           type: "paragraph",
-          text: "Перед запуском масштабної рекламної кампанії важливо переконатися, що бізнес має законні підстави використовувати обране позначення. Наявність зареєстрованої торговельної марки також може бути необхідною або запитуватися під час розміщення окремих видів реклами та співпраці з рекламними майданчиками й підрядниками.",
+          text: "Перед запуском масштабної рекламної кампанії важливо переконатися, що бізнес має законні підстави використовувати обране позначення. Рекламні майданчики та підрядники можуть запитувати підтвердження реєстрації торговельної марки.",
         },
         { type: "heading", text: "Захищати бренд в інтернеті" },
         {
@@ -305,17 +306,17 @@ export const BLOG_POSTS: Array<{
         { type: "heading", text: "Scale the business" },
         {
           type: "paragraph",
-          text: "A trademark creates the legal basis for brand licensing and franchising, allowing partners to use the brand on agreed terms and generate remuneration for the owner.",
+          text: "A trademark provides a legal basis for brand licensing and franchising. The owner can allow partners to use the brand on agreed terms in return for payment.",
         },
         { type: "heading", text: "Obtain a .UA domain" },
         {
           type: "paragraph",
           text: "A matching top-level .UA domain name is available only on the basis of a registered trademark.",
         },
-        { type: "heading", text: "Advertise and develop safely" },
+        { type: "heading", text: "Advertise and grow your brand safely" },
         {
           type: "paragraph",
-          text: "Before launching a major campaign, a business should make sure it has legal grounds to use the chosen sign. A registered trademark may also be required or requested by advertising platforms and contractors.",
+          text: "Before launching a major campaign, a business should make sure it has legal grounds to use the chosen sign. Advertising platforms and contractors may request proof of trademark registration.",
         },
         { type: "heading", text: "Protect the brand online" },
         {
