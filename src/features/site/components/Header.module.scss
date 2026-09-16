@@ -152,6 +152,9 @@
 }
 
 .mobilePanel {
+  max-height: calc(100dvh - 5rem - 2px);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
   border-top: 1px solid var(--border);
   background: var(--background);
   box-shadow: none;
